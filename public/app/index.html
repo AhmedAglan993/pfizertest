@@ -109,32 +109,33 @@
     </style>
 </head>
 
-<body onload="verify('EM659iqRyWvLcr02V','QR_MR1_GENO_Vnurseglobal','con_main')">
+<body>
+    <!-- onload="verify('EM659iqRyWvLcr02V','QR_MR1_GENO_Vnurseglobal','con_main')">-->
 
-  <div id="gameContainer"></div>
-  <div id="LoadingText" class="centerBottom">
-      <p style="color:#FFFFFF";>Your guide is loading... this may take a while</p>
-  </div>
+    <div id="gameContainer"></div>
+    <div id="LoadingText" class="centerBottom">
+        <p style="color:#FFFFFF" ;>Your guide is loading... this may take a while</p>
+    </div>
     <script>
-    function isRunningStandalone() {  
-return navigator.standalone || (window.matchMedia('(display-mode: standalone)').matches);  
-} </script>
+        function isRunningStandalone() {
+            return navigator.standalone || (window.matchMedia('(display-mode: standalone)').matches);
+        }</script>
 
-       <script type="text/javascript" src="https://libs.zappar.com/zappar-cv/2.0.0/zappar-cv.js"></script>
+    <script type="text/javascript" src="https://libs.zappar.com/zappar-cv/2.0.0/zappar-cv.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
         var db = indexedDB.open("dummy_indexdb", 1); // iOS 14.6 fix; the call to open indexdb hangs forever otherwise
         //window.zappar=ZCV.initialize();
         const loader = document.querySelector("#loader");
-        var gameInstance= UnityLoader.instantiate("gameContainer", "Build/GenoV1Zappar.json"); 
-        
-       // window.zappar.permission_request_ui_promise().then(WaitForZCVLoad);
-        
-        function WaitForZCVLoad(){            
-            if (zappar.loaded()) { 
-                //loader.style.display = "none";.  
-                gameInstance= UnityLoader.instantiate("gameContainer", "Build/GenoV1Zappar.json", { onProgress: UnityProgress }); 
-                return; 
+        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/GenoV1Zappar.json");
+
+        // window.zappar.permission_request_ui_promise().then(WaitForZCVLoad);
+
+        function WaitForZCVLoad() {
+            if (zappar.loaded()) {
+                //loader.style.display = "none";.
+                gameInstance = UnityLoader.instantiate("gameContainer", "Build/GenoV1Zappar.json", { onProgress: UnityProgress });
+                return;
             }
             setTimeout(WaitForZCVLoad, 500);
         }
@@ -166,7 +167,7 @@ return navigator.standalone || (window.matchMedia('(display-mode: standalone)').
     <!-- <script type="text/javascript" src="../../../../pwa_geno.js"></script> -->
     <script src="../assets/js/urlbuilder.js?v=3"></script>
     <script>
-       jQuery('head').append('<link rel="manifest" href="'+ window.location.origin +'/manifest.json" crossorigin="use-credentials">');
+        jQuery('head').append('<link rel="manifest" href="' + window.location.origin + '/manifest.json" crossorigin="use-credentials">');
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker
                 .register('../service-worker.js')
